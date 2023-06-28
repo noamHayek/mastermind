@@ -1,0 +1,231 @@
+@startuml
+
+title __COMPANY's Class Diagram__\n
+
+  namespace com.company {
+    class com.company.Ai {
+        {static} + inCaseOfFourW()
+        {static} + inCaseOfOneB()
+        {static} + inCaseOfThree()
+        {static} + inCaseOfTwo()
+        {static} + inCaseOfTwoB()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Board {
+        {static} ~ buttons : JButton[][]
+        + Board()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.BoardFrame {
+        {static} ~ board : Board
+        ~ close : JMenuItem
+        {static} ~ col : int
+        {static} ~ computerTsofen : Color[]
+        ~ giveUp : JMenuItem
+        ~ index : int
+        ~ m : JMenu
+        ~ menu : JMenuBar
+        {static} ~ playerTsopen : Color[]
+        ~ position : int
+        ~ restartM : JMenuItem
+        ~ row : int
+        + BoardFrame()
+        + BoardFrame()
+        + actionPerformed()
+        + getIndex()
+        + getPosition()
+        + getRow()
+        {static} + setLine()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.CheckBox {
+        {static} ~ result : JButton[]
+        + CheckBox()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.CheckBoxArray {
+        {static} ~ labels : JLabel[]
+        + CheckBoxArray()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.ChoosingFrame {
+        {static} ~ chooosing : int
+        {static} ~ choose : Color[]
+        {static} ~ clear : JButton
+        {static} ~ code : JButton[]
+        {static} ~ index : int
+        {static} ~ label : JLabel
+        {static} ~ ok : JButton
+        + ChoosingFrame()
+        + actionPerformed()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Colors {
+        {static} + colors : JButton[]
+        + Colors()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.ComputerChoose {
+        {static} + cChoose()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.ComputerVsPlayer {
+        {static} ~ computer : BoardFrame
+        {static} ~ computerCode : Color[]
+        {static} ~ computerScore : int
+        {static} ~ computerSolve : boolean
+        {static} ~ firstGuess : Color[]
+        {static} ~ isChoose : boolean
+        {static} ~ isFinish : boolean
+        {static} ~ playerScore : int
+        {static} ~ playerSolve : boolean
+        {static} ~ playerTurn : boolean
+        + ComputerVsPlayer()
+        {static} + winner()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.GameLogic {
+        {static} ~ blackFlagCount : int
+        {static} ~ flagCount : int
+        {static} ~ isFinished : boolean
+        {static} ~ isWon : boolean
+        {static} + checkValid()
+        {static} + getResult()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Homepage {
+        {static} ~ code1 : Color[]
+        {static} ~ code2 : Color[]
+        {static} ~ isComputerVsPlayer : boolean
+        {static} ~ isPlayerVsPlayer : boolean
+        ~ player : JButton
+        ~ twoPlayers : JButton
+        + Homepage()
+        + actionPerformed()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.Main {
+        {static} + main()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.OkAndClear {
+        {static} ~ clear : JButton
+        {static} ~ ok : JButton
+        + OkAndClear()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.PlayerVsPlayer {
+        {static} ~ isOk : boolean
+        {static} ~ p1 : BoardFrame
+        {static} ~ p1Index : int
+        {static} ~ p1Row : int
+        {static} ~ p2 : BoardFrame
+        {static} ~ p2Index : int
+        {static} ~ p2Row : int
+        {static} ~ player1Board : Color[][]
+        {static} ~ player1Result : Color[][]
+        {static} ~ player2Board : Color[][]
+        {static} ~ player2Result : Color[][]
+        {static} ~ tsofen : Color[]
+        {static} ~ turn : int
+        {static} + switchingFrame()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.WhoChooseFrame {
+        ~ computer : JButton
+        {static} ~ frame : BoardFrame
+        {static} ~ isComputer : int
+        ~ player : JButton
+        + WhoChooseFrame()
+        + actionPerformed()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.WhoWillPlay {
+        ~ pvc : JButton
+        ~ pvp : JButton
+        + WhoWillPlay()
+        + actionPerformed()
+    }
+  }
+  
+
+  namespace com.company {
+    class com.company.WinFrame {
+        {static} ~ massage : JLabel
+        + WinFrame()
+    }
+  }
+  
+
+  com.company.Board -up-|> javax.swing.JPanel
+  com.company.BoardFrame .up.|> java.awt.event.ActionListener
+  com.company.BoardFrame -up-|> javax.swing.JFrame
+  com.company.BoardFrame o-- com.company.CheckBoxArray : checks
+  com.company.CheckBox -up-|> javax.swing.JPanel
+  com.company.CheckBoxArray -up-|> javax.swing.JLabel
+  com.company.ChoosingFrame .up.|> java.awt.event.ActionListener
+  com.company.ChoosingFrame -up-|> javax.swing.JFrame
+  com.company.Colors -up-|> javax.swing.JLabel
+  com.company.Homepage .up.|> java.awt.event.ActionListener
+  com.company.Homepage -up-|> javax.swing.JFrame
+  com.company.OkAndClear -up-|> javax.swing.JPanel
+  com.company.WhoChooseFrame .up.|> java.awt.event.ActionListener
+  com.company.WhoChooseFrame -up-|> javax.swing.JFrame
+  com.company.WhoWillPlay .up.|> java.awt.event.ActionListener
+  com.company.WhoWillPlay -up-|> javax.swing.JFrame
+  com.company.WinFrame -up-|> javax.swing.JFrame
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
